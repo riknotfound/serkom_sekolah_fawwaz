@@ -1,4 +1,4 @@
-@extends('template')
+@extends('admin.template')
 @section('title','Dashboard Admin')
 @section('content')
 <div class="container my-4 text-start">
@@ -12,7 +12,7 @@
         <div class="card-body">
             <h4 class="card-title mb-3">Kelola Data Siswa</h4>
 
-            <a href="{{ route('siswa.create') }}" class="btn btn-primary mb-3">+ Tambah Siswa</a>
+            <a href="{{ route('admin.siswa.create') }}" class="btn btn-primary mb-3">+ Tambah Siswa</a>
 
             <table class="table table-bordered table-hover">
                 <thead class="table-primary">
@@ -52,7 +52,6 @@
                 </tbody>
             </table>
 
-            {{ $siswas->links() }}
         </div>
     </div>
 </div>

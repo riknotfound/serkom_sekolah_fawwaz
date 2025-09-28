@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\GuruController as AdminGuruController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
@@ -8,22 +7,21 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\EkskulController;
 use App\Http\Controllers\ProfilSekolahController;
-use App\Http\Controllers\Admin\ProfilSekolahController as AdminProfilSekolahController;
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\EkstrakurikulerController;
 
-Route::get('/', [ProfilSekolahController::class, 'beranda'])->name('beranda');
-Route::get('/profil', [ProfilSekolahController::class, 'profil'])->name('profil');
-Route::get('/berita', [ProfilSekolahController::class, 'berita'])->name('berita');
-Route::get('/galeri', [ProfilSekolahController::class, 'galeri'])->name('galeri');
-Route::get('/kontak', [ProfilSekolahController::class, 'kontak'])->name('kontak');
+Route::get('/', [BerandaController::class, 'index'])->name('beranda');
+Route::get('/profil', [BerandaController::class, 'profil'])->name('profil');
+Route::get('/berita', [BerandaController::class, 'berita'])->name('berita');
+Route::get('/galeri', [BerandaController::class, 'galeri'])->name('galeri');
+Route::get('/kontak', [BerandaController::class, 'kontak'])->name('kontak');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'auth.admin'])->prefix('administrator')->name('admin.')->group(function() {
-
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
     Route::get('siswa', [SiswaController::class, 'index'])->name('siswa.index');
@@ -54,12 +52,12 @@ Route::middleware(['auth', 'auth.admin'])->prefix('administrator')->name('admin.
     Route::post('galeri/edit/{id}', [GaleriController::class, 'update'])->name('galeri.update');
     Route::get('galeri/delete/{id}', [GaleriController::class, 'destroy'])->name('galeri.delete');
 
-    Route::get('ekskul', [EkskulController::class, 'index'])->name('ekskul.index');
-    Route::get('ekskul/create', [EkskulController::class, 'create'])->name('ekskul.create');
-    Route::post('ekskul/create', [EkskulController::class, 'store'])->name('ekskul.store');
-    Route::get('ekskul/edit/{id}', [EkskulController::class, 'edit'])->name('ekskul.edit');
-    Route::post('ekskul/edit/{id}', [EkskulController::class, 'update'])->name('ekskul.update');
-    Route::get('ekskul/delete/{id}', [EkskulController::class, 'destroy'])->name('ekskul.delete');
+    Route::get('eksktrakurikuler', [EkstrakurikulerController::class, 'index'])->name('ekstrakurikuler.index');
+    Route::get('ekstrakurikuler/create', [EkstrakurikulerController::class, 'create'])->name('ekstrakurikuler.create');
+    Route::post('ekstrakurikuler/create', [EkstrakurikulerController::class, 'store'])->name('ekstrakurikuler.store');
+    Route::get('ekstrakurikuler/edit/{id}', [EkstrakurikulerController::class, 'edit'])->name('ekstrakurikuler.edit');
+    Route::post('ekstrakurikuler/edit/{id}', [EkstrakurikulerController::class, 'update'])->name('ekstrakurikuler.update');
+    Route::get('ekstrakurikuler/delete/{id}', [EkstrakurikulerController::class, 'destroy'])->name('ekstrakurikuler.delete');
 
     Route::get('profil-sekolah', [ProfilSekolahController::class, 'index'])->name('profil-sekolah.index');
     Route::get('profil-sekolah/create', [ProfilSekolahController::class, 'create'])->name('profil-sekolah.create');

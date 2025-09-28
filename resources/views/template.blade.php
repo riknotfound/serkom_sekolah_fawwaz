@@ -27,9 +27,6 @@
                     <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
                 </ul>
 
-                <div class="d-flex ms-3">
-                    <a href="{{ route('login') }}" class="btn btn-warning btn-sm">Login</a>
-                </div>
             </div>
         </div>
     </nav>

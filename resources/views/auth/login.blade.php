@@ -35,7 +35,7 @@
         </div>
 
         <div class="text-center mt-3">
-            <a href="{{ route('admin.dashboard') }}" class="btn btn-link text-decoration-none">
+            <a href="{{ route('beranda') }}" class="btn btn-link text-decoration-none">
                 Kembali ke Beranda
             </a>
         </div>

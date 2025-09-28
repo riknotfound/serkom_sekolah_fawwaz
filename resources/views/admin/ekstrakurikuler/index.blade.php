@@ -1,10 +1,10 @@
 @extends('admin.template')
 @section('title', 'Data Ekstrakurikuler')
-@section('menu-ekskul', 'active')
+@section('menu-eksktrakurikuler', 'active')
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3>Data Ekstrakurikuler</h3>
-        <a href="{{ route('admin.ekskul.create') }}" class="btn btn-primary">Tambah Ekskul</a>
+        <a href="{{ route('admin.ekstrakurikuler.create') }}" class="btn btn-primary">Tambah Ekskul</a>
     </div>
 
     @if(session('success'))
@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            @forelse($ekskul as $item)
+            @forelse($ekstrakurikuler as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->nama }}</td>
@@ -35,9 +35,9 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('admin.ekskul.show', $item->id_ekskul) }}" class="btn btn-info btn-sm">Detail</a>
-                        <a href="{{ route('admin.ekskul.edit', $item->id_ekskul) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="{{ route('admin.ekskul.confirmDelete', $item->id_ekskul) }}" class="btn btn-danger btn-sm">Hapus</a>
+                        <a href="{{ route('admin.ekstrakurikuler.show', $item->id) }}" class="btn btn-info btn-sm">Detail</a>
+                        <a href="{{ route('admin.ekstrakurikuler.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('admin.ekstrakurikuler.confirmDelete', $item->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                     </td>
                 </tr>
             @empty

@@ -28,12 +28,12 @@ class AuthController extends Controller
             $user = Auth::user();
 
             // Arahkan sesuai role/level user
-            if ($user->role_id == 1) {
+            if ($user->level === 'admin') {
                 return redirect()->route('admin.dashboard');
-            } elseif ($user->role_id == 2) {
+            } elseif ($user->level === 'operator') {
                 return redirect()->route('operator.dashboard');
             } else {
-                return redirect()->route('beranda');
+                return redirect()->route('admin.dashboard');
             }
         }
 

@@ -12,4 +12,10 @@ class BerandaController extends Controller
             'title' => 'Beranda Sekolah'
         ]);
     }
+    // public function beranda()
+    // {
+    //     return view('beranda', [
+    //         'title' => 'Beranda Sekolah'
+    //     ]);
+    // }
 }
