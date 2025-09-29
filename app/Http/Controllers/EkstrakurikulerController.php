@@ -8,20 +8,17 @@ use Illuminate\Support\Facades\Storage;
 
 class EkstrakurikulerController extends Controller
 {
-    // Tampilkan semua ekstrakurikuler
     public function index()
     {
         $ekstrakurikuler = Ekstrakurikuler::latest()->get();
         return view('admin.ekstrakurikuler.index', compact('ekstrakurikuler'));
     }
 
-    // Form tambah
     public function create()
     {
         return view('admin.ekstrakurikuler.create');
     }
 
-    // Simpan data
     public function store(Request $request)
     {
         $request->validate([
@@ -50,21 +47,18 @@ class EkstrakurikulerController extends Controller
             ->with('success', 'Ekstrakurikuler berhasil ditambahkan');
     }
 
-    // Detail
     public function show($id)
     {
         $ekstrakurikuler = Ekstrakurikuler::findOrFail($id);
         return view('admin.ekstrakurikuler.show', compact('ekstrakurikuler'));
     }
 
-    // Form edit
     public function edit($id)
     {
         $ekstrakurikuler = Ekstrakurikuler::findOrFail($id);
         return view('admin.ekstrakurikuler.edit', compact('ekstrakurikuler'));
     }
 
-    // Update data
     public function update(Request $request, $id)
     {
         $ekstrakurikuler = Ekstrakurikuler::findOrFail($id);
@@ -98,7 +92,6 @@ class EkstrakurikulerController extends Controller
             ->with('success', 'Ekstrakurikuler berhasil diperbarui');
     }
 
-    // Hapus data
     public function destroy($id)
     {
         $ekstrakurikuler = Ekstrakurikuler::findOrFail($id);

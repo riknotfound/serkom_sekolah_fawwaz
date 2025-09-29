@@ -36,7 +36,7 @@
                         <a class="nav-link @yield('menu-galeri')" href="{{ url('/admin/galeri') }}">Kelola Galeri</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @yield('menu-ekskul')" href="{{ url('/admin/ekskul') }}">Kelola Ekskul</a>
+                        <a class="nav-link @yield('menu-ekskul')" href="{{ url('/admin/ekstrakurikuler') }}">Kelola Ekskul</a>
                     </li>
                 </ul>
 

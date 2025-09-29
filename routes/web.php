@@ -34,6 +34,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
     Route::get('guru', [GuruController::class, 'index'])->name('guru.index');
     Route::get('guru/create', [GuruController::class, 'create'])->name('guru.create');
     Route::post('guru/create', [GuruController::class, 'store'])->name('guru.store');
+    Route::get('guru/{id}', [GuruController::class, 'show'])->name('guru.show');
     Route::get('guru/edit/{id}', [GuruController::class, 'edit'])->name('guru.edit');
     Route::post('guru/edit/{id}', [GuruController::class, 'update'])->name('guru.update');
     Route::get('guru/delete/{id}', [GuruController::class, 'destroy'])->name('guru.delete');
@@ -52,7 +53,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
     Route::post('galeri/edit/{id}', [GaleriController::class, 'update'])->name('galeri.update');
     Route::get('galeri/delete/{id}', [GaleriController::class, 'destroy'])->name('galeri.delete');
 
-    Route::get('eksktrakurikuler', [EkstrakurikulerController::class, 'index'])->name('ekstrakurikuler.index');
+    Route::get('ekstrakurikuler', [EkstrakurikulerController::class, 'index'])->name('ekstrakurikuler.index');
     Route::get('ekstrakurikuler/create', [EkstrakurikulerController::class, 'create'])->name('ekstrakurikuler.create');
     Route::post('ekstrakurikuler/create', [EkstrakurikulerController::class, 'store'])->name('ekstrakurikuler.store');
     Route::get('ekstrakurikuler/edit/{id}', [EkstrakurikulerController::class, 'edit'])->name('ekstrakurikuler.edit');

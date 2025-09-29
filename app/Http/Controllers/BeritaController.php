@@ -39,7 +39,7 @@ class BeritaController extends Controller
             'isi' => $request->isi,
             'tanggal' => $request->tanggal,
             'gambar' => $gambar,
-            'id_user' => auth()->id(),
+            'user_id' => auth() ->  Auth::id(),
         ]);
 
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan');

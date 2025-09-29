@@ -13,7 +13,7 @@ class Guru extends Model
     protected $primaryKey = 'id_guru';
 
     protected $fillable = [
-        'nama',
+        'nama_guru',
         'nip',
         'mapel',
         'foto',

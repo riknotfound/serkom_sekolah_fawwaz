@@ -6,7 +6,7 @@
 @section('content')
     <h3>Tambah Ekstrakurikuler</h3>
 
-    <form action="{{ route('admin.ekskul.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.ekstrakurikuler.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label>Nama Ekskul</label>
@@ -29,6 +29,6 @@
             <input type="file" name="gambar" class="form-control" accept=".jpg,.jpeg,.png">
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="{{ route('admin.ekskul.index') }}" class="btn btn-secondary">Batal</a>
+        <a href="{{ route('admin.ekstrakurikuler.index') }}" class="btn btn-secondary">Batal</a>
     </form>
 @endsection

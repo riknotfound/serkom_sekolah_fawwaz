@@ -39,7 +39,7 @@
                     <td>
                         <a href="{{ route('admin.guru.show', $g->id_guru) }}" class="btn btn-info btn-sm">Lihat</a>
                         <a href="{{ route('admin.guru.edit', $g->id_guru) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="{{ route('admin.guru.confirmDelete', $g->id_guru) }}" class="btn btn-danger btn-sm">Hapus</a>
+                        <a href="{{ route('admin.guru.delete', $g->id_guru) }}" onclick="return confirm('Yakin ingin menghapus data guru ini?')" class="btn btn-danger btn-sm">Hapus</a>
                     </td>
                 </tr>
             @empty

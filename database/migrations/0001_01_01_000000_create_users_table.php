@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Jalankan migration.
-     */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -17,7 +14,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('level')->default('operator'); // ✅ Tambahkan kolom level
+            $table->string('level')->default('operator');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -38,9 +35,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Rollback migration.
-     */
     public function down(): void
     {
         Schema::dropIfExists('sessions');

@@ -17,12 +17,11 @@ class Berita extends Model
         'isi',
         'tanggal',
         'gambar',
-        'id_user',
+        'user_id',
     ];
 
-    // Relasi ke User
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_user');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

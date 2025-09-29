@@ -14,7 +14,6 @@ class AuthAdmin
             return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu.');
         }
 
-        // Contoh jika pakai role_id
         if (Auth::user()->role_id !== 1) {
             abort(403, 'Anda tidak memiliki akses ke halaman ini.');
         }

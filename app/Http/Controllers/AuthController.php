@@ -13,21 +13,17 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    // Proses Login
     public function login(Request $request)
     {
-        // Validasi input
         $credentials = $request->validate([
             'email'    => 'required|email',
             'password' => 'required',
         ]);
 
-        // Cek login
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             $user = Auth::user();
 
-            // Arahkan sesuai role/level user
             if ($user->level === 'admin') {
                 return redirect()->route('admin.dashboard');
             } elseif ($user->level === 'operator') {
@@ -37,7 +33,6 @@ class AuthController extends Controller
             }
         }
 
-        // Jika login gagal
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ])->onlyInput('email');
@@ -50,7 +45,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        // Setelah logout arahkan ke halaman login
         return redirect()->route('login');
     }
 }

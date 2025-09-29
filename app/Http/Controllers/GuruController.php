@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Guru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -23,13 +22,13 @@ class GuruController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_guru' => 'required|string|max:255',
             'nip' => 'nullable|string|max:50',
             'mapel' => 'required|string|max:100',
             'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $data = $request->only(['nama', 'nip', 'mapel']);
+        $data = $request->only(['nama_guru', 'nip', 'mapel']);
 
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('guru', 'public');
@@ -53,13 +52,13 @@ class GuruController extends Controller
     public function update(Request $request, Guru $guru)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_guru' => 'required|string|max:255',
             'nip' => 'nullable|string|max:50',
             'mapel' => 'required|string|max:100',
             'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $data = $request->only(['nama', 'nip', 'mapel']);
+        $data = $request->only(['nama_guru', 'nip', 'mapel']);
 
         if ($request->hasFile('foto')) {
             if ($guru->foto && Storage::disk('public')->exists($guru->foto)) {
@@ -71,11 +70,6 @@ class GuruController extends Controller
         $guru->update($data);
 
         return redirect()->route('admin.guru.index')->with('success', 'Data guru berhasil diperbarui!');
-    }
-
-    public function confirmDelete(Guru $guru)
-    {
-        return view('admin.guru.delete', compact('guru'));
     }
 
     public function destroy(Guru $guru)
