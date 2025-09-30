@@ -16,21 +16,26 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.guru.update', $guru->id_guru) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.guru.update', $guru) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
+
             <div class="mb-3">
-                <label for="nama" class="form-label">Nama Guru</label>
-                <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama', $guru->nama) }}" required>
+                <label for="nama_guru" class="form-label">Nama Guru</label>
+                <input type="text" name="nama_guru" class="form-control" id="nama_guru"
+                       value="{{ old('nama_guru', $guru->nama_guru) }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="nip" class="form-label">NIP</label>
-                <input type="text" name="nip" class="form-control" id="nip" value="{{ old('nip', $guru->nip) }}" required>
+                <input type="text" name="nip" class="form-control" id="nip"
+                       value="{{ old('nip', $guru->nip) }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="mapel" class="form-label">Mata Pelajaran</label>
-                <input type="text" name="mapel" class="form-control" id="mapel" value="{{ old('mapel', $guru->mapel) }}" required>
+                <input type="text" name="mapel" class="form-control" id="mapel"
+                       value="{{ old('mapel', $guru->mapel) }}" required>
             </div>
 
             <div class="mb-3">

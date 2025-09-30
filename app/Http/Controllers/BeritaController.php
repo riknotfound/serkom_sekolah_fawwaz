@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Expr\Cast\String_;
 
 class BeritaController extends Controller
 {
@@ -39,23 +41,24 @@ class BeritaController extends Controller
             'isi' => $request->isi,
             'tanggal' => $request->tanggal,
             'gambar' => $gambar,
-            'user_id' => auth() ->  Auth::id(),
+            'user_id' => Auth::user()->id, // Menyimpan ID user yang membuat berita
         ]);
 
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan');
     }
 
-    public function show(Berita $beritum)
+    public function show(Berita $berita)
     {
-        return view('admin.berita.show', ['berita' => $beritum]);
+        return view('admin.berita.show', ['berita' => $berita]);
     }
 
-    public function edit(Berita $beritum)
+    public function edit(String $id)
     {
-        return view('admin.berita.edit', ['berita' => $beritum]);
+        $data['berita'] = Berita::findOrFail($id);
+        return view('admin.berita.edit', $data);
     }
 
-    public function update(Request $request, Berita $beritum)
+    public function update(Request $request, String $id)
     {
         $request->validate([
             'judul' => 'required|max:50',
@@ -64,7 +67,9 @@ class BeritaController extends Controller
             'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $gambar = $beritum->gambar;
+        $berita = Berita::findOrFail($id);
+
+        $gambar = $berita->gambar;
         if ($request->hasFile('gambar')) {
             if ($gambar && Storage::disk('public')->exists($gambar)) {
                 Storage::disk('public')->delete($gambar);
@@ -72,7 +77,7 @@ class BeritaController extends Controller
             $gambar = $request->file('gambar')->store('berita', 'public');
         }
 
-        $beritum->update([
+        $berita->update([
             'judul' => $request->judul,
             'isi' => $request->isi,
             'tanggal' => $request->tanggal,
@@ -82,12 +87,12 @@ class BeritaController extends Controller
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil diperbarui');
     }
 
-    public function destroy(Berita $beritum)
+    public function destroy(Berita $berita)
     {
-        if ($beritum->gambar && Storage::disk('public')->exists($beritum->gambar)) {
-            Storage::disk('public')->delete($beritum->gambar);
+        if ($berita->gambar && Storage::disk('public')->exists($berita->gambar)) {
+            Storage::disk('public')->delete($berita->gambar);
         }
-        $beritum->delete();
+        $berita->delete();
 
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus');
     }

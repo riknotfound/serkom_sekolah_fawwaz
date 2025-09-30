@@ -26,7 +26,7 @@
             @forelse($guru as $g)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $g->nama }}</td>
+                    <td>{{ $g->nama_guru }}</td>
                     <td>{{ $g->nip }}</td>
                     <td>{{ $g->mapel }}</td>
                     <td>

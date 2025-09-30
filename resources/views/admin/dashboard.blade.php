@@ -1,58 +1,60 @@
 @extends('admin.template')
-@section('title','Dashboard Admin')
+@section('title', 'Dashboard Admin')
+@section('menu-dashboard', 'active')
+
 @section('content')
-<div class="container my-4 text-start">
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
 
-    <h2 class="mb-4">Dashboard Admin</h2>
+    <div class="text-center mb-5">
+        <h3 class="fw-bold">Selamat Datang di Dashboard Admin</h3>
+        <p class="mb-0">
+            Gunakan menu navigasi di atas untuk mengelola data Siswa, Guru, Berita,
+            Galeri, dan Ekstrakurikuler.
+        </p>
+    </div>
 
-    <div class="card shadow-sm mb-4">
-        <div class="card-body">
-            <h4 class="card-title mb-3">Kelola Data Siswa</h4>
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Siswa</h5>
+                    <h2 class="fw-bold">{{ $totalSiswa ?? 0 }}</h2>
+                    <a href="{{ url('/admin/siswa') }}" class="btn btn-primary btn-sm mt-2">Lihat Data</a>
+                </div>
+            </div>
+        </div>
 
-            <a href="{{ route('admin.siswa.create') }}" class="btn btn-primary mb-3">+ Tambah Siswa</a>
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Guru</h5>
+                    <h2 class="fw-bold">{{ $totalGuru ?? 0 }}</h2>
+                    <a href="{{ url('/admin/guru') }}" class="btn btn-primary btn-sm mt-2">Lihat Data</a>
+                </div>
+            </div>
+        </div>
 
-            <table class="table table-bordered table-hover">
-                <thead class="table-primary">
-                    <tr>
-                        <th>NISN</th>
-                        <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>Kelas</th>
-                        <th width="180">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($siswas as $siswa)
-                        <tr>
-                            <td>{{ $siswa->nisn }}</td>
-                            <td>{{ $siswa->nama }}</td>
-                            <td>{{ $siswa->alamat }}</td>
-                            <td>{{ $siswa->kelas }}</td>
-                            <td>
-                                <a href="{{ route('siswa.edit', $siswa->id) }}"
-                                   class="btn btn-sm btn-warning">Edit</a>
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Berita</h5>
+                    <h2 class="fw-bold">{{ $totalBerita ?? 0 }}</h2>
+                    <a href="{{ url('/admin/berita') }}" class="btn btn-primary btn-sm mt-2">Lihat Data</a>
+                </div>
+            </div>
+        </div>
 
-                                <form action="{{ route('siswa.destroy', $siswa->id) }}"
-                                      method="POST" class="d-inline"
-                                      onsubmit="return confirm('Yakin hapus data ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger">Hapus</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="5" class="text-center">Belum ada data siswa.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Ekskul</h5>
+                    <h2 class="fw-bold">{{ $totalEkskul ?? 0 }}</h2>
+                    <a href="{{ url('/admin/ekstrakurikuler') }}" class="btn btn-primary btn-sm mt-2">Lihat Data</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+@endsection
+
+@section('footer-info')
+    <strong>Dashboard SMPN 7 Bandung</strong>
 @endsection

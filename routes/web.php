@@ -34,17 +34,17 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
     Route::get('guru', [GuruController::class, 'index'])->name('guru.index');
     Route::get('guru/create', [GuruController::class, 'create'])->name('guru.create');
     Route::post('guru/create', [GuruController::class, 'store'])->name('guru.store');
-    Route::get('guru/{id}', [GuruController::class, 'show'])->name('guru.show');
-    Route::get('guru/edit/{id}', [GuruController::class, 'edit'])->name('guru.edit');
-    Route::post('guru/edit/{id}', [GuruController::class, 'update'])->name('guru.update');
-    Route::get('guru/delete/{id}', [GuruController::class, 'destroy'])->name('guru.delete');
+    Route::get('guru/{guru}', [GuruController::class, 'show'])->name('guru.show');
+    Route::get('guru/{guru}/edit', [GuruController::class, 'edit'])->name('guru.edit');
+    Route::put('guru/{guru}', [GuruController::class, 'update'])->name('guru.update');
+    Route::delete('guru/{guru}', [GuruController::class, 'destroy'])->name('guru.delete');
 
     Route::get('berita', [BeritaController::class, 'index'])->name('berita.index');
     Route::get('berita/create', [BeritaController::class, 'create'])->name('berita.create');
-    Route::post('berita/create', [BeritaController::class, 'store'])->name('berita.store');
-    Route::get('berita/edit/{id}', [BeritaController::class, 'edit'])->name('berita.edit');
-    Route::post('berita/edit/{id}', [BeritaController::class, 'update'])->name('berita.update');
-    Route::get('berita/delete/{id}', [BeritaController::class, 'destroy'])->name('berita.delete');
+    Route::post('berita', [BeritaController::class, 'store'])->name('berita.store');
+    Route::get('berita/{id}/edit', [BeritaController::class, 'edit'])->name('berita.edit');
+    Route::post('berita/update/{id}', [BeritaController::class, 'update'])->name('berita.update');
+    Route::delete('berita/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 
     Route::get('galeri', [GaleriController::class, 'index'])->name('galeri.index');
     Route::get('galeri/create', [GaleriController::class, 'create'])->name('galeri.create');

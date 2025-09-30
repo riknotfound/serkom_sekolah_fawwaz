@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            @forelse($siswas as $siswa)
+            @forelse($siswa as $siswa)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $siswa->nisn ?? $siswa->nis }}</td>
@@ -31,7 +31,6 @@
                     <td>{{ $siswa->alamat ?? '-' }}</td>
                     <td>{{ $siswa->kelas }}</td>
                     <td>
-                        <a href="{{ route('admin.siswa.show', $siswa->id) }}" class="btn btn-info btn-sm">Lihat</a>
                         <a href="{{ route('admin.siswa.edit', $siswa->id) }}" class="btn btn-warning btn-sm">Edit</a>
 
                         <form action="{{ route('admin.siswa.destroy', $siswa->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data ini?')">

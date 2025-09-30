@@ -1,37 +1,49 @@
 @extends('admin.template')
-@section('title', 'Edit Berita')
-@section('menu-berita', 'active')
-@section('content')
-    <h3>Edit Berita</h3>
 
-    <form action="{{ route('admin.berita.update', $berita->id_berita) }}" method="POST" enctype="multipart/form-data">
+@section('content')
+<div class="container mt-4">
+    <h3 class="mb-4">Edit Berita</h3>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="{{ route('admin.berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
 
         <div class="mb-3">
             <label for="judul" class="form-label">Judul</label>
-            <input type="text" name="judul" class="form-control" value="{{ old('judul', $berita->judul) }}" required>
+            <input type="text" class="form-control" id="judul" name="judul"
+                   value="{{ old('judul', $berita->judul) }}" required maxlength="50">
         </div>
 
         <div class="mb-3">
-            <label for="isi" class="form-label">Isi</label>
-            <textarea name="isi" class="form-control" rows="5" required>{{ old('isi', $berita->isi) }}</textarea>
+            <label for="isi" class="form-label">Isi Berita</label>
+            <textarea class="form-control" id="isi" name="isi" rows="5" required>{{ old('isi', $berita->isi) }}</textarea>
         </div>
 
         <div class="mb-3">
             <label for="tanggal" class="form-label">Tanggal</label>
-            <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal', $berita->tanggal) }}" required>
+            <input type="date" class="form-control" id="tanggal" name="tanggal"
+                   value="{{ old('tanggal', $berita->tanggal) }}" required>
         </div>
 
         <div class="mb-3">
-            <label for="gambar" class="form-label">Gambar</label><br>
+            <label for="gambar" class="form-label">Gambar</label>
+            <input type="file" class="form-control" id="gambar" name="gambar">
             @if($berita->gambar)
-                <img src="{{ asset('storage/berita/'.$berita->gambar) }}" width="120" class="mb-2"><br>
+                <img src="{{ asset('storage/'.$berita->gambar) }}" alt="Gambar Berita" class="img-fluid mt-2" style="max-height:150px;">
             @endif
-            <input type="file" name="gambar" class="form-control">
         </div>
 
-        <button type="submit" class="btn btn-success">Update</button>
-        <a href="{{ route('admin.berita.index') }}" class="btn btn-secondary">Batal</a>
+        <button type="submit" class="btn btn-primary">Update Berita</button>
+        <a href="{{ route('admin.berita.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
+</div>
 @endsection

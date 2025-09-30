@@ -9,9 +9,8 @@ class SiswaController extends Controller
 {
     public function index()
     {
-        $siswas = Siswa::latest()->paginate(10);
-
-        return view('admin.siswa.index', compact('siswas'));
+        $siswa = Siswa::latest()->paginate(10);
+        return view('admin.siswa.index', compact('siswa'));
     }
 
     public function create()
@@ -22,10 +21,10 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:100',
-            'nis' => 'required|string|max:20|unique:siswas,nis',
-            'kelas' => 'required|string|max:50',
-            'alamat' => 'nullable|string|max:255'
+            'nisn'          => 'required|string|max:20|unique:siswa,nisn',
+            'nama_siswa'    => 'required|string|max:100',
+            'jenis_kelamin' => 'required|string|max:10',
+            'tahun_masuk'   => 'required|integer',
         ]);
 
         Siswa::create($validated);
@@ -46,21 +45,20 @@ class SiswaController extends Controller
     public function update(Request $request, Siswa $siswa)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:100',
-            'nis' => 'required|string|max:20|unique:siswas,nis,' . $siswa->id,
-            'kelas' => 'required|string|max:50',
-            'alamat' => 'nullable|string|max:255'
+            'nisn'          => 'required|string|max:20|unique:siswa,nisn,' . $siswa->id_siswa . ',id_siswa',
+            'nama_siswa'    => 'required|string|max:100',
+            'jenis_kelamin' => 'required|string|max:10',
+            'tahun_masuk'   => 'required|integer',
         ]);
 
         $siswa->update($validated);
 
-        return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil diperbarui!');
+        return redirect()->route('admin.siswa.index')->with('success', 'Data siswa berhasil diperbarui!');
     }
 
     public function destroy(Siswa $siswa)
     {
         $siswa->delete();
-
-        return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil dihapus!');
+        return redirect()->route('admin.siswa.index')->with('success', 'Data siswa berhasil dihapus!');
     }
 }
