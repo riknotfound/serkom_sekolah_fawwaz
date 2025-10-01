@@ -26,18 +26,17 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
 
     Route::get('siswa', [SiswaController::class, 'index'])->name('siswa.index');
     Route::get('siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
-    Route::post('siswa/create', [SiswaController::class, 'store'])->name('siswa.store');
-    Route::get('siswa/edit/{id}', [SiswaController::class, 'edit'])->name('siswa.edit');
-    Route::post('siswa/edit/{id}', [SiswaController::class, 'update'])->name('siswa.update');
-    Route::get('siswa/delete/{id}', [SiswaController::class, 'destroy'])->name('siswa.delete');
+    Route::post('siswa', [SiswaController::class, 'store'])->name('siswa.store');
+    Route::get('siswa/{id_siswa}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+    Route::put('siswa/{id_siswa}', [SiswaController::class, 'update'])->name('siswa.update');
+    Route::delete('siswa/{id_siswa}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
 
     Route::get('guru', [GuruController::class, 'index'])->name('guru.index');
     Route::get('guru/create', [GuruController::class, 'create'])->name('guru.create');
-    Route::post('guru/create', [GuruController::class, 'store'])->name('guru.store');
-    Route::get('guru/{guru}', [GuruController::class, 'show'])->name('guru.show');
+    Route::post('guru', [GuruController::class, 'store'])->name('guru.store');
     Route::get('guru/{guru}/edit', [GuruController::class, 'edit'])->name('guru.edit');
     Route::put('guru/{guru}', [GuruController::class, 'update'])->name('guru.update');
-    Route::delete('guru/{guru}', [GuruController::class, 'destroy'])->name('guru.delete');
+    Route::delete('guru/{guru}', [GuruController::class, 'destroy'])->name('guru.destroy');
 
     Route::get('berita', [BeritaController::class, 'index'])->name('berita.index');
     Route::get('berita/create', [BeritaController::class, 'create'])->name('berita.create');
@@ -49,23 +48,23 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
     Route::get('galeri', [GaleriController::class, 'index'])->name('galeri.index');
     Route::get('galeri/create', [GaleriController::class, 'create'])->name('galeri.create');
     Route::post('galeri/create', [GaleriController::class, 'store'])->name('galeri.store');
-    Route::get('galeri/edit/{id}', [GaleriController::class, 'edit'])->name('galeri.edit');
-    Route::post('galeri/edit/{id}', [GaleriController::class, 'update'])->name('galeri.update');
-    Route::get('galeri/delete/{id}', [GaleriController::class, 'destroy'])->name('galeri.delete');
+    Route::get('galeri/edit/{id_galeri}', [GaleriController::class, 'edit'])->name('galeri.edit');
+    Route::put('galeri/edit/{id_galeri}', [GaleriController::class, 'update'])->name('galeri.update');
+    Route::delete('galeri/delete/{id_galeri}', [GaleriController::class, 'destroy'])->name('galeri.delete');
 
     Route::get('ekstrakurikuler', [EkstrakurikulerController::class, 'index'])->name('ekstrakurikuler.index');
     Route::get('ekstrakurikuler/create', [EkstrakurikulerController::class, 'create'])->name('ekstrakurikuler.create');
     Route::post('ekstrakurikuler/create', [EkstrakurikulerController::class, 'store'])->name('ekstrakurikuler.store');
     Route::get('ekstrakurikuler/edit/{id}', [EkstrakurikulerController::class, 'edit'])->name('ekstrakurikuler.edit');
-    Route::post('ekstrakurikuler/edit/{id}', [EkstrakurikulerController::class, 'update'])->name('ekstrakurikuler.update');
-    Route::get('ekstrakurikuler/delete/{id}', [EkstrakurikulerController::class, 'destroy'])->name('ekstrakurikuler.delete');
+    Route::put('ekstrakurikuler/edit/{id}', [EkstrakurikulerController::class, 'update'])->name('ekstrakurikuler.update');
+    Route::delete('ekstrakurikuler/delete/{id}', [EkstrakurikulerController::class, 'destroy'])->name('ekstrakurikuler.delete');
 
-    Route::get('profil-sekolah', [ProfilSekolahController::class, 'index'])->name('profil-sekolah.index');
-    Route::get('profil-sekolah/create', [ProfilSekolahController::class, 'create'])->name('profil-sekolah.create');
-    Route::post('profil-sekolah/create', [ProfilSekolahController::class, 'store'])->name('profil-sekolah.store');
-    Route::get('profil-sekolah/edit/{id}', [ProfilSekolahController::class, 'edit'])->name('profil-sekolah.edit');
-    Route::post('profil-sekolah/edit/{id}', [ProfilSekolahController::class, 'update'])->name('profil-sekolah.update');
-    Route::get('profil-sekolah/delete/{id}', [ProfilSekolahController::class, 'destroy'])->name('profil-sekolah.delete');
+    Route::get('profil', [ProfilSekolahController::class, 'index'])->name('profil.index');
+    Route::get('profil/create', [ProfilSekolahController::class, 'create'])->name('profil.create');
+    Route::post('profil/create', [ProfilSekolahController::class, 'store'])->name('profil.store');
+    Route::get('profil/edit/{id}', [ProfilSekolahController::class, 'edit'])->name('profil.edit');
+    Route::post('profil/edit/{id}', [ProfilSekolahController::class, 'update'])->name('profil.update');
+    Route::get('profil/delete/{id}', [ProfilSekolahController::class, 'destroy'])->name('profil.delete');
 });
 
 Route::middleware(['auth'])->prefix('operator')->name('operator.')->group(function () {

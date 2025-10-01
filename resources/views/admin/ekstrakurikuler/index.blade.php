@@ -1,6 +1,7 @@
 @extends('admin.template')
 @section('title', 'Kelola Ekstrakurikuler')
 @section('menu-ekstrakurikuler', 'active')
+
 @section('content')
     <div class="d-flex justify-content-between mb-3">
         <h3>Daftar Ekstrakurikuler</h3>
@@ -17,7 +18,8 @@
                 <th>No</th>
                 <th>Nama Ekskul</th>
                 <th>Pembina</th>
-                <th>Jadwal</th>
+                <th>Jadwal Latihan</th>
+                <th>Deskripsi</th>
                 <th>Gambar</th>
                 <th>Aksi</th>
             </tr>
@@ -26,9 +28,10 @@
             @forelse($ekstrakurikuler as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->nama }}</td>
+                    <td>{{ $item->nama_ekskull }}</td>
                     <td>{{ $item->pembina }}</td>
-                    <td>{{ $item->jadwal }}</td>
+                    <td>{{ $item->jadwal_latihan }}</td>
+                    <td>{{ $item->deskripsi }}</td>
                     <td>
                         @if($item->gambar)
                             <img src="{{ asset('storage/'.$item->gambar) }}" width="70" alt="Gambar Ekskul">
@@ -37,10 +40,8 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('admin.ekstrakurikuler.show', $item->id) }}" class="btn btn-info btn-sm">Detail</a>
                         <a href="{{ route('admin.ekstrakurikuler.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
-
-                        <form action="{{ route('admin.ekstrakurikuler.destroy', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                        <form action="{{ route('admin.ekstrakurikuler.delete', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm">Hapus</button>
@@ -49,10 +50,9 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="text-center">Belum ada data ekstrakurikuler.</td>
+                    <td colspan="7" class="text-center">Belum ada data ekstrakurikuler.</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
-    
 @endsection

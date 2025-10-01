@@ -87,12 +87,12 @@ class BeritaController extends Controller
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil diperbarui');
     }
 
-    public function destroy(Berita $berita)
+    public function destroy(Berita $id)
     {
-        if ($berita->gambar && Storage::disk('public')->exists($berita->gambar)) {
-            Storage::disk('public')->delete($berita->gambar);
+        if ($id->gambar && Storage::disk('public')->exists($id->gambar)) {
+            Storage::disk('public')->delete($id->gambar);
         }
-        $berita->delete();
+        $id->delete();
 
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus');
     }

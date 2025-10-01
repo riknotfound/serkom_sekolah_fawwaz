@@ -1,6 +1,7 @@
 @extends('admin.template')
 @section('title', 'Kelola Siswa')
 @section('menu-siswa', 'active')
+
 @section('content')
     <div class="d-flex justify-content-between mb-3">
         <h3>Daftar Siswa</h3>
@@ -23,20 +24,20 @@
             </tr>
         </thead>
         <tbody>
-            @forelse($siswa as $siswa)
+            @forelse($siswa as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $siswa->nisn ?? $siswa->nis }}</td>
-                    <td>{{ $siswa->nama }}</td>
-                    <td>{{ $siswa->alamat ?? '-' }}</td>
-                    <td>{{ $siswa->kelas }}</td>
+                    <td>{{ $item->nisn }}</td>
+                    <td>{{ $item->nama_siswa }}</td>
+                    <td>{{ $item->alamat ?? '-' }}</td>
+                    <td>{{ $item->kelas ?? '-' }}</td>
                     <td>
-                        <a href="{{ route('admin.siswa.edit', $siswa->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('admin.siswa.edit', $item->id_siswa) }}" class="btn btn-warning btn-sm">Edit</a>
 
-                        <form action="{{ route('admin.siswa.destroy', $siswa->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data ini?')">
+                        <form action="{{ route('admin.siswa.destroy', $item->id_siswa) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data ini?')">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-sm">Hapus</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                         </form>
                     </td>
                 </tr>

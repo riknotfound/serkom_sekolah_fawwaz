@@ -29,21 +29,25 @@ class SiswaController extends Controller
 
         Siswa::create($validated);
 
-        return redirect()->route('siswa.index')->with('success', 'Siswa berhasil ditambahkan!');
+        return redirect()->route('admin.siswa.index')->with('success', 'Siswa berhasil ditambahkan!');
     }
 
-    public function show(Siswa $siswa)
+    public function show($id_siswa)
     {
+        $siswa = Siswa::findOrFail($id_siswa);
         return view('admin.siswa.show', compact('siswa'));
     }
 
-    public function edit(Siswa $siswa)
+    public function edit($id_siswa)
     {
+        $siswa = Siswa::findOrFail($id_siswa);
         return view('admin.siswa.edit', compact('siswa'));
     }
 
-    public function update(Request $request, Siswa $siswa)
+    public function update(Request $request, $id_siswa)
     {
+        $siswa = Siswa::findOrFail($id_siswa);
+
         $validated = $request->validate([
             'nisn'          => 'required|string|max:20|unique:siswa,nisn,' . $siswa->id_siswa . ',id_siswa',
             'nama_siswa'    => 'required|string|max:100',
@@ -56,8 +60,9 @@ class SiswaController extends Controller
         return redirect()->route('admin.siswa.index')->with('success', 'Data siswa berhasil diperbarui!');
     }
 
-    public function destroy(Siswa $siswa)
+    public function destroy($id_siswa)
     {
+        $siswa = Siswa::findOrFail($id_siswa);
         $siswa->delete();
         return redirect()->route('admin.siswa.index')->with('success', 'Data siswa berhasil dihapus!');
     }

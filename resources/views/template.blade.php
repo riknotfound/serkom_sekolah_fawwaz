@@ -21,10 +21,10 @@
                     <li class="nav-item">
                         <a class="nav-link @yield('menu-beranda')" href="{{ url('/') }}">Beranda</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Profil Sekolah</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/profil">Profil Sekolah</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Ekstrakurikuler</a></li>
                 </ul>
 
             </div>

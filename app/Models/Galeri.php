@@ -19,4 +19,8 @@ class Galeri extends Model
         'kategori',
         'tanggal',
     ];
+
+    protected $casts = [
+        'tanggal' => 'date',
+    ];
 }

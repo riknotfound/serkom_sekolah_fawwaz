@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProfilSekolah;
 
 class BerandaController extends Controller
 {
@@ -12,10 +13,14 @@ class BerandaController extends Controller
             'title' => 'Beranda Sekolah'
         ]);
     }
-    // public function beranda()
-    // {
-    //     return view('beranda', [
-    //         'title' => 'Beranda Sekolah'
-    //     ]);
-    // }
+
+    public function profil()
+    {
+        $profil = ProfilSekolah::first();
+
+        return view('profil', [
+            'title'  => 'Profil Sekolah',
+            'profil' => $profil
+        ]);
+    }
 }

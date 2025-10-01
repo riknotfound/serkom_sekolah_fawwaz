@@ -1,8 +1,6 @@
 @extends('admin.template')
-
 @section('title', 'Tambah Ekstrakurikuler')
 @section('menu-ekskul', 'active')
-
 @section('content')
     <h3>Tambah Ekstrakurikuler</h3>
 
@@ -10,19 +8,19 @@
         @csrf
         <div class="mb-3">
             <label>Nama Ekskul</label>
-            <input type="text" name="nama" class="form-control" required>
+            <input type="text" name="nama_ekskull" class="form-control" required>
         </div>
         <div class="mb-3">
             <label>Pembina</label>
             <input type="text" name="pembina" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label>Jadwal</label>
-            <input type="text" name="jadwal" class="form-control" placeholder="Misal: Setiap Sabtu 14.00 - 16.00">
+            <label>Jadwal Latihan</label>
+            <input type="text" name="jadwal_latihan" class="form-control" required placeholder="Contoh: Senin & Rabu, 15.00 - 17.00">
         </div>
         <div class="mb-3">
             <label>Deskripsi</label>
-            <textarea name="deskripsi" class="form-control"></textarea>
+            <textarea name="deskripsi" class="form-control" rows="4" required placeholder="Tuliskan deskripsi singkat ekskul..."></textarea>
         </div>
         <div class="mb-3">
             <label>Gambar</label>

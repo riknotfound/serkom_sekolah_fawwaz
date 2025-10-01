@@ -31,15 +31,21 @@
                     <td>{{ $g->mapel }}</td>
                     <td>
                         @if($g->foto)
-                            <img src="{{ asset('storage/guru/'.$g->foto) }}" width="70">
+                            <img src="{{ asset('storage/'.$g->foto) }}" width="70">
                         @else
                             <span class="text-muted">-</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('admin.guru.show', $g->id_guru) }}" class="btn btn-info btn-sm">Lihat</a>
                         <a href="{{ route('admin.guru.edit', $g->id_guru) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="{{ route('admin.guru.delete', $g->id_guru) }}" onclick="return confirm('Yakin ingin menghapus data guru ini?')" class="btn btn-danger btn-sm">Hapus</a>
+
+                        <form action="{{ route('admin.guru.destroy', $g->id_guru) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data guru ini?')">
+                                Hapus
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @empty

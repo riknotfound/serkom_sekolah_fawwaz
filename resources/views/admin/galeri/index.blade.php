@@ -30,7 +30,7 @@
                     <td>{{ $item->judul }}</td>
                     <td>{{ $item->keterangan ?? '-' }}</td>
                     <td class="text-capitalize">{{ $item->kategori }}</td>
-                    <td>{{ $item->tanggal ? $item->tanggal->format('d M Y') : '-' }}</td>
+                    <td>{{ $item->tanggal ? \Carbon\Carbon::parse($item->tanggal)->format('d M Y') : '-' }}</td>
                     <td>
                         @if($item->kategori == 'foto' && $item->file)
                             <img src="{{ asset('storage/'.$item->file) }}" alt="{{ $item->judul }}" width="80">
@@ -43,14 +43,13 @@
                             <span class="text-muted">-</span>
                         @endif
                     </td>
-                    <td>
-                        <a href="{{ route('admin.galeri.show', $item->id) }}" class="btn btn-info btn-sm">Detail</a>
-                        <a href="{{ route('admin.galeri.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <td class="d-flex gap-1">
+                        <a href="{{ route('admin.galeri.edit', $item->id_galeri) }}" class="btn btn-warning btn-sm">Edit</a>
 
-                        <form action="{{ route('admin.galeri.destroy', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data galeri ini?')">
+                        <form action="{{ route('admin.galeri.delete', $item->id_galeri) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data galeri ini?')">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger btn-sm">Hapus</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                         </form>
                     </td>
                 </tr>

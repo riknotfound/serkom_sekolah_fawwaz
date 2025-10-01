@@ -1,8 +1,6 @@
 @extends('admin.template')
-
 @section('title', 'Hapus Ekstrakurikuler')
 @section('menu-ekskul', 'active')
-
 @section('content')
     <h3>Konfirmasi Hapus Ekstrakurikuler</h3>
 
@@ -12,17 +10,17 @@
 
     <div class="card mb-3">
         <div class="card-body">
-            <h5>{{ $ekskul->nama }}</h5>
-            <p><strong>Pembina:</strong> {{ $ekskul->pembina }}</p>
-            <p><strong>Jadwal:</strong> {{ $ekskul->jadwal }}</p>
-            <p>{{ $ekskul->deskripsi }}</p>
-            @if($ekskul->gambar)
-                <img src="{{ asset('storage/'.$ekskul->gambar) }}" width="200">
+            <h5>{{ $ekstrakurikuler->nama }}</h5>
+            <p><strong>Pembina:</strong> {{ $ekstrakurikuler->pembina }}</p>
+            <p><strong>Jadwal:</strong> {{ $ekstrakurikuler->jadwal_latihan }}</p>
+            <p>{{ $ekstrakurikuler->deskripsi }}</p>
+            @if($ekstrakurikuler->gambar)
+                <img src="{{ asset('storage/'.$ekstrakurikuler->gambar) }}" width="200">
             @endif
         </div>
     </div>
 
-    <form action="{{ route('admin.ekskul.destroy', $ekskul->id_ekskul) }}" method="POST">
+    <form action="{{ route('admin.ekskul.destroy', $ekstrakurikuler->id) }}" method="POST">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger">Ya, Hapus</button>

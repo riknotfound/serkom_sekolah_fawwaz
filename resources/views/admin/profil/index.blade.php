@@ -1,7 +1,6 @@
 @extends('admin.template')
-
 @section('title', 'Profil Sekolah')
-
+@section('menu-profil', 'active')
 @section('content')
 <div class="container">
     <h1 class="mb-4">Profil Sekolah</h1>

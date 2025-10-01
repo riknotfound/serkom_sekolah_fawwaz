@@ -21,5 +21,12 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'level' => 'admin'
         ]);
+
+        User::create([
+            'name' => 'Operator',
+            'email' => 'operator@gmail.com',
+            'password' => bcrypt('12345678'),
+            'level' => 'operator',
+        ]);
     }
 }

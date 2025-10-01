@@ -22,11 +22,11 @@ class EkstrakurikulerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama'      => 'required|string|max:255',
-            'pembina'   => 'required|string|max:255',
-            'jadwal'    => 'nullable|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'gambar'    => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'nama_ekskull' => 'required|string|max:255',
+            'pembina'      => 'required|string|max:255',
+            'jadwal_latihan' => 'nullable|string|max:255',
+            'deskripsi'    => 'nullable|string',
+            'gambar'       => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $gambar = null;
@@ -35,11 +35,11 @@ class EkstrakurikulerController extends Controller
         }
 
         Ekstrakurikuler::create([
-            'nama'      => $request->nama,
-            'pembina'   => $request->pembina,
-            'jadwal'    => $request->jadwal,
-            'deskripsi' => $request->deskripsi,
-            'gambar'    => $gambar,
+            'nama_ekskull' => $request->nama_ekskull,
+            'pembina'      => $request->pembina,
+            'jadwal_latihan' => $request->jadwal_latihan,
+            'deskripsi'    => $request->deskripsi,
+            'gambar'       => $gambar,
         ]);
 
         return redirect()
@@ -64,11 +64,11 @@ class EkstrakurikulerController extends Controller
         $ekstrakurikuler = Ekstrakurikuler::findOrFail($id);
 
         $request->validate([
-            'nama'      => 'required|string|max:255',
-            'pembina'   => 'required|string|max:255',
-            'jadwal'    => 'nullable|string|max:255',
-            'deskripsi' => 'nullable|string',
-            'gambar'    => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'nama_ekskull' => 'required|string|max:255',
+            'pembina'      => 'required|string|max:255',
+            'jadwal_latihan' => 'nullable|string|max:255',
+            'deskripsi'    => 'nullable|string',
+            'gambar'       => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $gambar = $ekstrakurikuler->gambar;
@@ -80,11 +80,11 @@ class EkstrakurikulerController extends Controller
         }
 
         $ekstrakurikuler->update([
-            'nama'      => $request->nama,
-            'pembina'   => $request->pembina,
-            'jadwal'    => $request->jadwal,
-            'deskripsi' => $request->deskripsi,
-            'gambar'    => $gambar,
+            'nama_ekskull' => $request->nama_ekskull,
+            'pembina'      => $request->pembina,
+            'jadwal_latihan' => $request->jadwal_latihan,
+            'deskripsi'    => $request->deskripsi,
+            'gambar'       => $gambar,
         ]);
 
         return redirect()

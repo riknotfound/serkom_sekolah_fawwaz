@@ -41,18 +41,22 @@ class GaleriController extends Controller
         return redirect()->route('admin.galeri.index')->with('success', 'Galeri berhasil ditambahkan!');
     }
 
-    public function show(Galeri $galeri)
+    public function show($id_galeri)
     {
+        $galeri = Galeri::findOrFail($id_galeri);
         return view('admin.galeri.show', compact('galeri'));
     }
 
-    public function edit(Galeri $galeri)
+    public function edit($id_galeri)
     {
+        $galeri = Galeri::findOrFail($id_galeri);
         return view('admin.galeri.edit', compact('galeri'));
     }
 
-    public function update(Request $request, Galeri $galeri)
+    public function update(Request $request, $id_galeri)
     {
+        $galeri = Galeri::findOrFail($id_galeri);
+
         $request->validate([
             'judul' => 'required|string|max:255',
             'keterangan' => 'nullable|string',
@@ -75,13 +79,16 @@ class GaleriController extends Controller
         return redirect()->route('admin.galeri.index')->with('success', 'Galeri berhasil diperbarui!');
     }
 
-    public function confirmDelete(Galeri $galeri)
+    public function confirmDelete($id_galeri)
     {
+        $galeri = Galeri::findOrFail($id_galeri);
         return view('admin.galeri.delete', compact('galeri'));
     }
 
-    public function destroy(Galeri $galeri)
+    public function destroy($id_galeri)
     {
+        $galeri = Galeri::findOrFail($id_galeri);
+
         if ($galeri->file && Storage::disk('public')->exists($galeri->file)) {
             Storage::disk('public')->delete($galeri->file);
         }

@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ekstrakurikuler extends Model
 {
-    protected $table = 'ekstrakurikuler';   // <- penting: nama tabel asli
+    protected $table = 'ekstrakurikuler';
 
     protected $fillable = [
-        'nama',
+        'nama_ekskull',
         'pembina',
-        'jadwal',
+        'jadwal_latihan',
         'deskripsi',
         'gambar',
     ];

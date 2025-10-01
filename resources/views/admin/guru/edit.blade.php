@@ -16,7 +16,7 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.guru.update', $guru) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.guru.update', ['guru' => $guru->id_guru]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -29,7 +29,8 @@
             <div class="mb-3">
                 <label for="nip" class="form-label">NIP</label>
                 <input type="text" name="nip" class="form-control" id="nip"
-                       value="{{ old('nip', $guru->nip) }}" required>
+                       value="{{ old('nip', $guru->nip) }}">
+                <small class="text-muted">Kosongkan jika guru tidak memiliki NIP.</small>
             </div>
 
             <div class="mb-3">
@@ -41,14 +42,16 @@
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto</label><br>
                 @if($guru->foto)
-                    <img src="{{ asset('storage/guru/'.$guru->foto) }}" width="100" class="mb-2">
+                    <img src="{{ asset('storage/'.$guru->foto) }}" width="120" class="mb-2 rounded">
                 @endif
                 <input type="file" name="foto" class="form-control" id="foto" accept="image/*">
                 <small class="text-muted">Kosongkan jika tidak ingin mengganti foto.</small>
             </div>
 
-            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-            <a href="{{ route('admin.guru.index') }}" class="btn btn-secondary">Batal</a>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">💾 Simpan Perubahan</button>
+                <a href="{{ route('admin.guru.index') }}" class="btn btn-secondary">↩ Batal</a>
+            </div>
         </form>
     </div>
 @endsection
