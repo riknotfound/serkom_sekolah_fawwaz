@@ -15,7 +15,7 @@ Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 Route::get('/profil', [BerandaController::class, 'profil'])->name('profil');
 Route::get('/berita', [BerandaController::class, 'berita'])->name('berita');
 Route::get('/galeri', [BerandaController::class, 'galeri'])->name('galeri');
-Route::get('/kontak', [BerandaController::class, 'kontak'])->name('kontak');
+Route::get('/ekstrakurikuler', [BerandaController::class, 'ekstrakurikuler'])->name('ekstrakurikuler');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
