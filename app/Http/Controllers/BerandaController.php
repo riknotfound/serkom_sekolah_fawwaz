@@ -6,18 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\ProfilSekolah;
 use App\Models\Berita;
 use App\Models\Galeri;
-use App\Models\Ekstrakurikuler; // ✅ tambahkan ini
+use App\Models\Ekstrakurikuler;
 
 class BerandaController extends Controller
 {
     // Halaman beranda
     public function index()
     {
-        // ambil berita terbaru max 3
         $berita = Berita::latest()->take(3)->get();
-        // ambil galeri terbaru max 6
         $galeri = Galeri::latest()->take(6)->get();
-        // ambil ekskul terbaru max 6
         $ekskul = Ekstrakurikuler::latest()->take(6)->get();
 
         return view('beranda', [

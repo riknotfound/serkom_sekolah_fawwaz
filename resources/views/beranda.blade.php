@@ -26,71 +26,169 @@
     </div>
 </section>
 
-    <div id="profil" class="py-5">
+    <div id="profil" class="py-5 bg-light">
         <div class="container">
-            <h2 class="fw-bold text-center text-primary mb-4">Profil Sekolah</h2>
+            <h2 class="fw-bold text-center text-primary mb-5">Profil Sekolah</h2>
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <img src="assets/images/smp5.png" class="img-fluid rounded shadow" alt="Profil Sekolah">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div class="p-3 bg-white shadow rounded d-inline-block">
+                        <img src="{{ asset('assets/images/smp5.png') }}"
+                         class="img-fluid"
+                         alt="Logo Sekolah"
+                         style="max-width:220px;">
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h4>Kepala Sekolah: <span class="text-warning">Asep Hidayat S.Pd.</span></h4>
-                    <p>Alamat: Jl. Sumatra No. 40, Kota Bandung</p>
-                    <p>Visi: Menjadi sekolah menengah yang membentuk generasi muda Berkarakter, Cerdas, dan Peduli lingkungan</p>
-                    <p>Misi: Membiasakan sikap Jujur, Disiplin, dan Saling menghargai</p>
-                    <p>Berdiri sejak tahun 1920</p>
-                <div class="card-body">
-                    <a href="/profil" class="btn btn-sm btn-primary">Selengkapnya</a>
-                </div>
-                </div>
+            <div class="col-md-8 text-center text-md-start">
+                <h4 class="mb-2">
+                    Kepala Sekolah: <span class="fw-bold text-warning">Asep Hidayat, S.Pd.</span>
+                </h4>
+                <p class="mb-1">Alamat: Jl. Sumatra No. 40, Kota Bandung</p>
+                <p class="mb-1">
+                    <strong>Visi:</strong> Menjadi sekolah menengah yang membentuk generasi muda
+                    <em>Berkarakter, Cerdas, dan Peduli lingkungan</em>
+                </p>
+                <p class="mb-1">
+                    <strong>Misi:</strong> Membiasakan sikap Jujur, Disiplin, dan Saling menghargai
+                </p>
+                <p class="mb-3">Berdiri sejak tahun 1920</p>
+                <a href="{{ url('/profil') }}" class="btn btn-primary px-4">Selengkapnya</a>
+            </div>
             </div>
         </div>
     </div>
 
-    <div id="berita" class="py-5 bg-light">
+    <div id="profil" class="py-5 bg-light">
         <div class="container">
-            <h2 class="fw-bold text-center text-primary mb-4">Profil Sekolah</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="card-shadow-sm text-center">
-                        <img src="assets/images/berita.png" class="card-image-top p-3" alt="Profil">
-                        <div class="card-body">
-                            <a href="/berita" class="btn btn-sm btn-primary">Selengkapnya</a>
-                        </div>
+            <h2 class="fw-bold text-center text-primary mb-5">Berita Terbaru</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div class="p-3 bg-white shadow rounded d-inline-block">
+                        <img src="{{ asset('assets/images/berita1.jpeg') }}"
+                         class="img-fluid"
+                         alt="Logo Sekolah"
+                         style="max-width:220px;">
                     </div>
                 </div>
+            <div class="col-md-8 text-center text-md-start">
+                <h4 class="mb-2">
+                    Berita Terkini: <span class="fw-bold text-warning">Apresiasi peningkatan nilai raport tahun 2025</span>
+                </h4>
+                <p class="mb-1">
+                    <strong>Isi:</strong> SMPN 5 Bandung raih penghargaan pada acara apresiasi peningkatan nilai raport pendidkan 2025
+                </p>
+                <p class="mb-3">7 September 2025</p>
+                <a href="{{ url('/berita') }}" class="btn btn-primary px-4">Selengkapnya</a>
+            </div>
             </div>
         </div>
     </div>
 
-    <div id="berita" class="py-5 bg-light">
+    <div id="galeri-sekolah" class="py-5 bg-light">
         <div class="container">
-            <h2 class="fw-bold text-center text-primary mb-4">Berita Terkini</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="card-shadow-sm text-center">
-                        <img src="assets/images/berita.png" class="card-image-top p-3" alt="Berita">
-                        <div class="card-body">
-                            <a href="/berita" class="btn btn-sm btn-primary">Selengkapnya</a>
-                        </div>
-                    </div>
+            <h2 class="fw-bold text-center text-primary mb-4">Galeri Sekolah</h2>
+        <div class="row text-center">
+
+            <!-- Foto 1 -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/galeri1.jpg') }}"
+                         class="card-img-top"
+                         alt="Galeri 1">
                 </div>
+            </div>
+
+            <!-- Foto 2 -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/galeri2.jpg') }}"
+                         class="card-img-top"
+                         alt="Galeri 2">
+                </div>
+            </div>
+
+            <!-- Foto 3 -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/galeri3.jpg') }}"
+                         class="card-img-top"
+                         alt="Galeri 3">
+                </div>
+            </div>
+
+            <!-- Foto 4 -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/galeri4.jpg') }}"
+                         class="card-img-top"
+                         alt="Galeri 4">
+                </div>
+            </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{{ url('/galeri') }}" class="btn btn-primary px-4">Selengkapnya</a>
             </div>
         </div>
     </div>
 
-    <div id="galeri" class="py-5 bg-light">
+    <div id="galeri-sekolah" class="py-5 bg-light">
         <div class="container">
-            <h2 class="fw-bold text-center text-primary mb-4">Galeri</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="card-shadow-sm text-center">
-                        <img src="assets/images/galeri.png" class="card-image-top p-3" alt="Galeri">
-                        <div class="card-body">
-                            <a href="#" class="btn btn-sm btn-primary">Lihat disini</a>
-                        </div>
-                    </div>
+            <h2 class="fw-bold text-center text-primary mb-4">Ekstrakurikuler</h2>
+        <div class="row text-center">
+
+            <!-- Foto 1 -->
+            <div class="col-md-2 col-sm-5 mb-3">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/pmr.png') }}"
+                         class="card-img-top"
+                         alt="Galeri 1">
                 </div>
+            </div>
+
+            <!-- Foto 2 -->
+            <div class="col-md-2 col-sm-5 mb-3">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/pramuka.png') }}"
+                         class="card-img-top"
+                         alt="Galeri 2">
+                </div>
+            </div>
+
+            <!-- Foto 3 -->
+            <div class="col-md-2 col-sm-5 mb-3">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/paskibra.jpg') }}"
+                         class="card-img-top"
+                         alt="Galeri 3">
+                </div>
+            </div>
+
+            <!-- Foto 4 -->
+            <div class="col-md-2 col-sm-5 mb-3">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/galeri4.jpg') }}"
+                         class="card-img-top"
+                         alt="Galeri 4">
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-5 mb-3">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/galeri4.jpg') }}"
+                         class="card-img-top"
+                         alt="Galeri 4">
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-5 mb-3">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ asset('assets/images/galeri4.jpg') }}"
+                         class="card-img-top"
+                         alt="Galeri 4">
+                </div>
+            </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{{ url('/galeri') }}" class="btn btn-primary px-4">Selengkapnya</a>
             </div>
         </div>
     </div>
