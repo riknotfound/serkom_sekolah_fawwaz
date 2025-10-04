@@ -13,7 +13,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3 mb-4">
+        <div class="col-md-3 mb-3">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
                     <h5 class="card-title">Total Siswa</h5>
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
+        <div class="col-md-2 mb-3">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
                     <h5 class="card-title">Total Guru</h5>
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
+        <div class="col-md-2 mb-3">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
                     <h5 class="card-title">Total Berita</h5>
@@ -43,7 +43,17 @@
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
+        <div class="col-md-2 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Galeri</h5>
+                    <h2 class="fw-bold">{{ $totalGaleri ?? 0 }}</h2>
+                    <a href="{{ url('/admin/galeri') }}" class="btn btn-primary btn-sm mt-2">Lihat Data</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
             <div class="card shadow-sm border-0">
                 <div class="card-body text-center">
                     <h5 class="card-title">Total Ekskul</h5>

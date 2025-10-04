@@ -14,7 +14,7 @@ class AuthOperator
             return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu.');
         }
 
-        if (Auth::user()->role_id !== 2) {
+        if (Auth::user()->level !== 'operator') {
             abort(403, 'Anda tidak memiliki akses ke halaman ini.');
         }
 

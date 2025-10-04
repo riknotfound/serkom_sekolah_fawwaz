@@ -165,7 +165,7 @@
             <!-- Foto 4 -->
             <div class="col-md-2 col-sm-5 mb-3">
                 <div class="card shadow-sm h-100">
-                    <img src="{{ asset('assets/images/galeri4.jpg') }}"
+                    <img src="{{ asset('assets/images/sispala.png') }}"
                          class="card-img-top"
                          alt="Galeri 4">
                 </div>
@@ -173,7 +173,7 @@
 
             <div class="col-md-2 col-sm-5 mb-3">
                 <div class="card shadow-sm h-100">
-                    <img src="{{ asset('assets/images/galeri4.jpg') }}"
+                    <img src="{{ asset('assets/images/senitari.png') }}"
                          class="card-img-top"
                          alt="Galeri 4">
                 </div>
@@ -181,34 +181,18 @@
 
             <div class="col-md-2 col-sm-5 mb-3">
                 <div class="card shadow-sm h-100">
-                    <img src="{{ asset('assets/images/galeri4.jpg') }}"
+                    <img src="{{ asset('assets/images/pks.png') }}"
                          class="card-img-top"
                          alt="Galeri 4">
                 </div>
             </div>
             </div>
             <div class="text-center mt-3">
-                <a href="{{ url('/galeri') }}" class="btn btn-primary px-4">Selengkapnya</a>
+                <a href="{{ url('/ekstrakurikuler') }}" class="btn btn-primary px-4">Selengkapnya</a>
             </div>
         </div>
     </div>
 
-<section id="info-singkat" class="bg-light py-5">
-    <div class="container">
-        <div class="card border-0 shadow-sm mx-auto" style="max-width:420px;">
-            <div class="card-body text-center">
-                <h5 class="card-title fw-bold mb-3">Info Singkat</h5>
-                <p class="card-text mb-1">SMPN 7 Bandung</p>
-                <p class="card-text mb-1">
-                    Jl. Ambon No. 23,<br>
-                    Kelurahan Citarum, Kec. Bandung Wetan,<br>
-                    Kota Bandung, Jawa Barat
-                </p>
-                <p class="card-text fw-semibold">Telp: (022) 4233470</p>
-            </div>
-        </div>
-    </div>
-</section>
 @endsection
 
 @push('styles')

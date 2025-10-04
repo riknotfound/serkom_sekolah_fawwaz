@@ -14,7 +14,7 @@ class AuthAdmin
             return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu.');
         }
 
-        if (Auth::user()->role_id !== 1) {
+        if (Auth::user()->level !== 'admin') {
             abort(403, 'Anda tidak memiliki akses ke halaman ini.');
         }
 
