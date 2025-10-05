@@ -11,7 +11,7 @@ class OperatorController extends Controller
 {
     public function index()
     {
-        return view('operator.dashboard', [
+        return view('admin.dashboard', [
             'totalBerita' => Berita::count(),
             'totalGaleri' => Galeri::count(),
             'totalEkskul' => Ekstrakurikuler::count(),

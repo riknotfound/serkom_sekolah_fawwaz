@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfilSekolahController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 Route::get('/profil', [BerandaController::class, 'profil'])->name('profil');
@@ -24,6 +25,13 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function() {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+    Route::post('users', [UserController::class, 'store'])->name('users.store');
+    Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('users/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
     Route::get('siswa', [SiswaController::class, 'index'])->name('siswa.index');
     Route::get('siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
