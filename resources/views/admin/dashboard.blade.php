@@ -1,7 +1,6 @@
 @extends('admin.template')
 @section('title', 'Dashboard Admin')
 @section('menu-dashboard', 'active')
-
 @section('content')
 
 <div class="text-center mb-5">

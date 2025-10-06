@@ -25,7 +25,7 @@
                                 📅 {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}
                             </p>
                             <p class="card-text">
-                                {{ Str::limit(strip_tags($item->isi_berita), 100, '...') }}
+                                {{ Str::limit(strip_tags($item->isi), 100, '...') }}
                             </p>
                         </div>
                     </div>

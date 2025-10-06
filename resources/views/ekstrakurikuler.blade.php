@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->nama }}</h5>
                             <p class="card-subtitle text-muted mb-2">Pembina: {{ $item->pembina }}</p>
-                            <p class="mb-1"><strong>Jadwal:</strong> {{ $item->jadwal }}</p>
+                            <p class="mb-1"><strong>Jadwal:</strong> {{ $item->jadwal_latihan }}</p>
                             <p class="card-text">{{ $item->deskripsi ?? '-' }}</p>
                         </div>
                     </div>

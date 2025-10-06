@@ -19,12 +19,32 @@
         <p class="mb-4 animate__animated animate__fadeInUp">
             Silakan jelajahi menu di atas untuk mengenal lebih jauh tentang sekolah kami.
         </p>
-
-        <a href="#info-singkat" class="btn btn-primary btn-lg shadow">
-            Selengkapnya
-        </a>
     </div>
 </section>
+
+<div class="d-flex flex-wrap justify-content-center gap-4">
+
+    <div class="card shadow-sm border-0 text-center" style="width: 230px;">
+        <div class="card-body">
+            <h5 class="card-title">Total Siswa</h5>
+            <h2 class="fw-bold">{{ $totalSiswa->count() }}</h2>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 text-center" style="width: 230px;">
+        <div class="card-body">
+            <h5 class="card-title">Total Guru</h5>
+            <h2 class="fw-bold">{{ $totalGuru->count() }}</h2>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 text-center" style="width: 230px;">
+        <div class="card-body">
+            <h5 class="card-title">Total Ekskul</h5>
+            <h2 class="fw-bold">{{ $totalEkskul->count() }}</h2>
+        </div>
+    </div>
+</div>
 
     <div id="profil" class="py-5 bg-light">
         <div class="container">

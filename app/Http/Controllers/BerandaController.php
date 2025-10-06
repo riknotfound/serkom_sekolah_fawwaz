@@ -7,22 +7,23 @@ use App\Models\ProfilSekolah;
 use App\Models\Berita;
 use App\Models\Galeri;
 use App\Models\Ekstrakurikuler;
+use App\Models\Guru;
+use App\Models\Siswa;
 
 class BerandaController extends Controller
 {
     // Halaman beranda
     public function index()
     {
-        $berita = Berita::latest()->take(3)->get();
-        $galeri = Galeri::latest()->take(6)->get();
-        $ekskul = Ekstrakurikuler::latest()->take(6)->get();
+        $data['totalSiswa'] = Siswa::all();
+        $data['totalGuru'] = Guru::all();
+        $data['totalEkskul'] = Ekstrakurikuler::all();
 
-        return view('beranda', [
-            'title'  => 'Beranda Sekolah',
-            'berita' => $berita,
-            'galeri' => $galeri,
-            'ekskul' => $ekskul
-        ]);
+        $data['berita'] = Berita::latest()->take(3)->get();
+        $data['galeri'] = Galeri::latest()->take(6)->get();
+        $data['ekskul'] = Ekstrakurikuler::latest()->take(6)->get();
+
+        return view('beranda', $data);
     }
 
     // Halaman profil sekolah

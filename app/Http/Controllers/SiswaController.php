@@ -23,6 +23,8 @@ class SiswaController extends Controller
         $validated = $request->validate([
             'nisn'          => 'required|string|max:20|unique:siswa,nisn',
             'nama_siswa'    => 'required|string|max:100',
+            'alamat'        => 'required|string|max:100',
+            'kelas'         => 'required|string|max:50',
             'jenis_kelamin' => 'required|string|max:10',
             'tahun_masuk'   => 'required|integer',
         ]);
