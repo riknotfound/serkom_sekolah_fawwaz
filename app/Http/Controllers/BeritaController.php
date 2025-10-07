@@ -28,7 +28,7 @@ class BeritaController extends Controller
             'judul' => 'required|max:50',
             'isi' => 'required',
             'tanggal' => 'required|date',
-            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'gambar' => 'required|mimes:jpg,jpeg,png',
         ]);
 
         $gambar = null;
@@ -64,7 +64,7 @@ class BeritaController extends Controller
             'judul' => 'required|max:50',
             'isi' => 'required',
             'tanggal' => 'required|date',
-            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'gambar' => 'nullable|image|mimes:jpg,jpeg,png|max:5020',
         ]);
 
         $berita = Berita::findOrFail($id);

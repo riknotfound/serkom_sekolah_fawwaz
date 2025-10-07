@@ -1,5 +1,6 @@
 @extends('template')
 @section('title', 'Ekstrakurikuler Sekolah')
+@section('menu-ekstrakurikuler','active')
 @section('content')
 <div class="container py-5">
     <h2 class="mb-4 text-center">Ekstrakurikuler Sekolah</h2>

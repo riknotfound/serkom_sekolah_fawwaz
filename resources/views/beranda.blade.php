@@ -1,10 +1,13 @@
 @extends('template')
 @section('title', 'Beranda')
+@section('menu-beranda','active')
 @section('content')
 <section
     class="hero d-flex align-items-center justify-content-center text-center text-white"
     style="
-        background: url('{{ asset('assets/images/smpn5.jpg') }}') center/cover no-repeat;
+        background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('{{ asset('assets/images/smpn5.jpg') }}') center/cover no-repeat;
         min-height: 100vh;
         position: relative;
     "
@@ -13,7 +16,7 @@
 
     <div class="container position-relative">
         <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">
-            Selamat Datang di <span class="text-primary">SMPN&nbsp;5&nbsp;Bandung</span>
+            Selamat Datang di <span class="text-light">SMPN&nbsp;1&nbsp;Harapan Rakyat</span>
         </h1>
 
         <p class="mb-4 animate__animated animate__fadeInUp">
@@ -52,7 +55,7 @@
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-4 mb-md-0">
                     <div class="p-3 bg-white shadow rounded d-inline-block">
-                        <img src="{{ asset('assets/images/smp5.png') }}"
+                        <img src="{{ asset('assets/images/smpku.png') }}"
                          class="img-fluid"
                          alt="Logo Sekolah"
                          style="max-width:220px;">
@@ -83,7 +86,7 @@
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-4 mb-md-0">
                     <div class="p-3 bg-white shadow rounded d-inline-block">
-                        <img src="{{ asset('assets/images/berita1.jpeg') }}"
+                        <img src="{{ asset('assets/images/berita4.jpg') }}"
                          class="img-fluid"
                          alt="Logo Sekolah"
                          style="max-width:220px;">
@@ -91,10 +94,10 @@
                 </div>
             <div class="col-md-8 text-center text-md-start">
                 <h4 class="mb-2">
-                    Berita Terkini: <span class="fw-bold text-warning">Apresiasi peningkatan nilai raport tahun 2025</span>
+                    Berita Terkini: <span class="fw-bold text-warning">Hari Batik nasional tahun 2025</span>
                 </h4>
                 <p class="mb-1">
-                    <strong>Isi:</strong> SMPN 5 Bandung raih penghargaan pada acara apresiasi peningkatan nilai raport pendidkan 2025
+                    <strong>Isi:</strong> SMPN 1 Harapan Rakyat memperingati hari batik nasional, yang engharuskan seluruh warga lingkungan sekolahnya memakai batik
                 </p>
                 <p class="mb-3">7 September 2025</p>
                 <a href="{{ url('/berita') }}" class="btn btn-primary px-4">Selengkapnya</a>

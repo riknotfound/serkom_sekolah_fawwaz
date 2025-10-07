@@ -1,7 +1,6 @@
 @extends('admin.template')
 @section('title', 'Kelola Siswa')
 @section('menu-siswa', 'active')
-
 @section('content')
     <div class="d-flex justify-content-between mb-3">
         <h3>Daftar Siswa</h3>

@@ -1,7 +1,6 @@
 @extends('admin.template')
 @section('title', 'Kelola Ekstrakurikuler')
-@section('menu-ekstrakurikuler', 'active')
-
+@section('menu-ekskul', 'active')
 @section('content')
     <div class="d-flex justify-content-between mb-3">
         <h3>Daftar Ekstrakurikuler</h3>

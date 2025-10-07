@@ -1,6 +1,6 @@
 @extends('template')
 @section('title', 'Berita')
-
+@section('menu-berita','active')
 @section('content')
 <section class="container py-5">
     <h2 class="mb-4 text-center">Berita Terkini</h2>
@@ -22,10 +22,10 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->judul }}</h5>
                             <p class="text-muted small mb-2">
-                                📅 {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}
+                                 {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}
                             </p>
                             <p class="card-text">
-                                {{ Str::limit(strip_tags($item->isi), 100, '...') }}
+                                {{ Str::limit(strip_tags($item->isi), 300, '...') }}
                             </p>
                         </div>
                     </div>

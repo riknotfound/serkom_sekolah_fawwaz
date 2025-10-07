@@ -1,6 +1,6 @@
 @extends('template')
 @section('title', 'Galeri Sekolah')
-
+@section('menu-galeri','active')
 @section('content')
 <div class="container py-5">
     <h2 class="mb-4 text-center">Galeri Sekolah</h2>

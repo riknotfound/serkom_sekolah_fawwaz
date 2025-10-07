@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Siswa;
 use Illuminate\Http\Request;
-
 class SiswaController extends Controller
 {
     public function index()
@@ -53,6 +50,8 @@ class SiswaController extends Controller
         $validated = $request->validate([
             'nisn'          => 'required|string|max:20|unique:siswa,nisn,' . $siswa->id_siswa . ',id_siswa',
             'nama_siswa'    => 'required|string|max:100',
+            'alamat'        => 'required|string|max:100',
+            'kelas'         => 'required|string|max:50',
             'jenis_kelamin' => 'required|string|max:10',
             'tahun_masuk'   => 'required|integer',
         ]);
@@ -67,5 +66,11 @@ class SiswaController extends Controller
         $siswa = Siswa::findOrFail($id_siswa);
         $siswa->delete();
         return redirect()->route('admin.siswa.index')->with('success', 'Data siswa berhasil dihapus!');
+    }
+
+    public function daftar()
+    {
+        $siswa = Siswa::orderBy('nama_siswa', 'asc')->get();
+        return view('siswa', compact('siswa'));
     }
 }

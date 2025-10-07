@@ -26,6 +26,26 @@ class BerandaController extends Controller
         return view('beranda', $data);
     }
 
+    //Halaman daftar siswa
+    public function siswa()
+    {
+        $siswa = Siswa::latest()->paginate(6);
+        return view('siswa', [
+            'title'  => 'Data Siswa',
+            'siswa' => $siswa
+        ]);
+    }
+
+    //Halaman daftar guru
+    public function guru()
+    {
+        $guru = Guru::latest()->paginate(6);
+        return view('guru', [
+            'title'  => 'Data Guru',
+            'guru' => $guru
+        ]);
+    }
+
     // Halaman profil sekolah
     public function profil()
     {

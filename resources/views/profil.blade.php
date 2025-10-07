@@ -1,6 +1,6 @@
 @extends('template')
 @section('title', 'Profil Sekolah')
-
+@section('menu-profil','active')
 @section('content')
     {{-- Bagian Kepala Sekolah --}}
     <h2 class="mb-4">Kepala Sekolah</h2>
@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <th>Periode sebagai Kepala Sekolah</th>
-                    <td>06 Juli 2022 di SMPN 5 Bandung</td>
+                    <td>06 Juli 2022 di SMPN 1 Harapan Rakyat</td>
                 </tr>
                 <tr>
                     <th>Jenis Kelamin</th>
@@ -51,18 +51,18 @@
     </div>
 
     {{-- Bagian Sejarah Sekolah --}}
-    <h2 class="mb-4">Sejarah SMP Negeri 5 Bandung</h2>
+    <h2 class="mb-4">Sejarah SMP Negeri 1 Harapan Rakyat</h2>
     <div class="row mb-5">
         <div class="col-md-5 mb-4">
             <img src="{{ asset('assets/images/smpn-5-bandung.jpg') }}"
                  alt="SMP Negeri 5 Bandung Sekarang"
                  class="img-fluid rounded shadow">
-            <p class="text-muted text-center">SMP Negeri 5 Bandung – Sekarang</p>
+            <p class="text-muted text-center">SMP Negeri 1 Harapan Rakyat – Sekarang</p>
         </div>
 
         <div class="col-md-7">
             <p>
-                SMP Negeri 5 Bandung memiliki sejarah panjang yang dimulai sejak era kolonial.
+                SMP Negeri 1 Harapan Rakyat memiliki sejarah panjang yang dimulai sejak era kolonial.
                 Pada tahun 1920, pemerintah kolonial Belanda mendirikan MULO
                 (<em>Meer Uitgebreid Lager Onderwijs</em>) di Bandung sebagai lembaga pendidikan tingkat menengah.
                 Setelah Indonesia meraih kemerdekaan, sekolah ini mengalami beberapa perubahan nama dan fungsi.
@@ -77,7 +77,7 @@
             </p>
             <p>
                 Seiring berjalannya waktu dan perkembangan sistem pendidikan, sekolah ini kemudian
-                bertransformasi menjadi SMP Negeri 5 Bandung yang kita kenal hingga saat ini.
+                bertransformasi menjadi SMP Negeri 1 Harapan Rakyat yang kita kenal hingga saat ini.
                 Dengan sejarah panjang dan perjalanan transformasi yang unik,
                 SMP Negeri 5 Bandung menjadi salah satu sekolah negeri yang berperan penting
                 dalam dunia pendidikan di Kota Bandung.

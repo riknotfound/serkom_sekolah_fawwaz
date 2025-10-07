@@ -16,6 +16,7 @@
 
     <form action="{{ route('admin.berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT') {{-- Ini penting agar POST dianggap PUT oleh Laravel --}}
 
         <div class="mb-3">
             <label for="judul" class="form-label">Judul</label>

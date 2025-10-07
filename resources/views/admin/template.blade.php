@@ -91,7 +91,7 @@
                 @yield('footer-info')
             </div>
         @endif
-        <small>&copy; {{ date('Y') }} {{ Auth::user()->level === 'admin' ? 'Admin' : 'Operator' }} SMPN 5 Bandung. All rights reserved.</small>
+        <small>&copy; {{ date('Y') }} {{ Auth::user()->level === 'admin' ? 'Admin' : 'Operator' }} SMPN 1 Harapan Rakyat. All rights reserved.</small>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

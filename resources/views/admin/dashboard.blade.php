@@ -70,5 +70,5 @@
 @endsection
 
 @section('footer-info')
-    <strong>Dashboard SMPN 5 Bandung</strong>
+    <strong>Dashboard SMPN 1 Harapan Rakyat</strong>
 @endsection

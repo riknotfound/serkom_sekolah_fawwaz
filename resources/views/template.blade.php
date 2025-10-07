@@ -14,8 +14,8 @@
         <div class="container">
             {{-- Tambah Logo di kiri atas --}}
             <a class="navbar-brand fw-bold d-flex align-items-center" href="{{ url('/') }}">
-                <img src="{{ asset('assets/images/smp5.png') }}" alt="Logo Sekolah" style="height:40px;" class="me-2">
-                SMPN 5 Bandung
+                <img src="{{ asset('assets/images/smpku.png') }}" alt="Logo Sekolah" style="height:40px;" class="me-2">
+                SMPN 1 Harapan Rakyat
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav"
@@ -24,8 +24,10 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link @yield('menu-beranda')" href="{{ url('/') }}">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link @yield('menu-siswa')" href="{{ url('/siswa') }}">Siswa</a></li>
+                    <li class="nav-item"><a class="nav-link @yield('menu-guru')" href="{{ url('/guru') }}">Guru</a></li>
                     <li class="nav-item"><a class="nav-link @yield('menu-profil')" href="/profil">Profil Sekolah</a></li>
                     <li class="nav-item"><a class="nav-link @yield('menu-berita')" href="/berita">Berita</a></li>
                     <li class="nav-item"><a class="nav-link @yield('menu-galeri')" href="/galeri">Galeri</a></li>
@@ -47,8 +49,8 @@
         {{-- Bagian Biru --}}
         <div class="bg-primary text-white text-center py-4">
             <div class="container">
-                <img src="{{ asset('assets/images/smp5.png') }}" alt="Logo Sekolah" style="height: 70px;" class="mb-2">
-                <h4 class="fw-bold">SMP NEGERI 5 BANDUNG</h4>
+                <img src="{{ asset('assets/images/smpku.png') }}" alt="Logo Sekolah" style="height: 70px;" class="mb-2">
+                <h4 class="fw-bold">SMP NEGERI 1 HARAPAN RAKYAT</h4>
                 <p class="mb-0">Tiada Hari Tanpa Prestasi</p>
                 <p class="mb-0">Tiada Prestasi Tanpa Kerja Keras</p>
             </div>
@@ -69,17 +71,17 @@
                     {{-- Kontak Penting --}}
                     <div class="col-md-4 mb-3">
                         <h6 class="fw-bold"><i class="bi bi-telephone-fill"></i> Kontak Penting</h6>
-                        <p class="mb-1">smpnegeri05bandung@gmail.com</p>
-                        <p class="mb-1">Fax. +62 22-4207121</p>
-                        <p class="mb-0"><a href="https://www.smpn5bandung.sch.id" target="_blank" class="text-white text-decoration-none">https://www.smpn5bandung.sch.id</a></p>
+                        <p class="mb-1">smpnegeri01harpayat@gmail.com</p>
+                        <p class="mb-1">Fax. +62 22-4207122</p>
+                        <p class="mb-0"><a href="https://www.smpn1harapanrakyat.sch.id" target="_blank" class="text-white text-decoration-none">https://www.smpn1harapanrakyat.sch.id</a></p>
                     </div>
 
                     {{-- Sosial Media --}}
                     <div class="col-md-4 mb-3">
-                        <h6 class="fw-bold"><i class="bi bi-share-fill"></i> Sosial Media</h6>
-                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="#" class="text-white me-3"><i class="bi bi-tiktok fs-4"></i></a>
-                        <a href="#" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
+                        <h6 class="fw-bold"><i class="bi bi-share-fill"></i> Sosial Media Developer</h6>
+                        <a href="https://www.instagram.com/shiariik" target="_blank" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://www.tiktok.com/shiariik" target="_blank" class="text-white me-3"><i class="bi bi-tiktok fs-4"></i></a>
+                        <a href="https://www.youtube.com/shiarik" target="_blank" class="text-white"><i class="bi bi-youtube fs-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -87,7 +89,7 @@
 
         {{-- Copyright --}}
         <div class="bg-dark text-white text-center border-top border-warning py-3">
-            <small>&copy; 2025 SMP Negeri 5 Bandung | Supported By TMK SOLUTIONS</small>
+            <small>&copy; 2025 SMP Negeri 1 Harapan Rakyat | Supported By TMK SOLUTIONS</small>
         </div>
     </footer>
 
